@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'fantony';
+    src: url("style/fantony/FANTONY.otf");
+}
+
+body {
+    font-family: "fantony";
+}
+
+.title {
+    color: #fff;
+    font-size: 30px;
+    display: table;
+    margin: 0 auto;
+}
+
+.inputWordsContent {
+    display: inline-flex;
+    width: 300px;
+    height: -webkit-fill-available;
+    margin-left: 5px;
+}
+
+.validateWordsContainer {
+    display: flex;
+    margin-top: 10px;
+}
+
+.left {
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+.left {
+    width: 300px;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.container {
+    max-width: 90% !important;
+}
+
+.focus-linha td.focus-coluna {
+    color: #e7edee;
+    background: rgba(0, 255, 0, 0.5);
+}
+
+.focus-linha td,
+.focus-coluna {
+    background: rgba(76, 255, 80, 0.2);
+}
+
+.focus-linha td.focus-coluna-erro {
+    color: #e7edee;
+    background: rgba(231, 76, 60, 0.7);
+}
+
+tr.focus-coluna-erro {
+    color: #e7edee;
+    background: rgba(231, 76, 60, 0.2) !important;
+}
+
+td.focus-coluna-erro {
+    color: #e7edee;
+    background: rgba(231, 76, 60, 0.2) !important;
+}
+
+.fa-minus-circle {
+    color: red;
+}
+
+.fa-check-circle {
+    color: green;
+}
+
+.fas.fa-trash:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.card-custom {
+    min-width: 200px;
+    border: none;
+}
+
+.direction-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.padding-bottom {
+    padding: 0 0 1.25rem 0;
+}
+
+.svg-margin {
+    margin-right: 5px;
+}
+
+.white {
+    color: #FFF;
+}
+
+.custom-nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.custom-form {
+    width: 283px;
+    display: flex;
+    border-radius: 0 0 10px 4px;
+}
+
+.padding {
+    padding: 10px 0 10px 0;
+}
+
+.table-busca {
+    min-width: 255px;
+}
+
+.dropdown {
+    margin: 0 10px 0 0;
+}
+
+.dropdown-item {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.table-dark {
+    background-color: #5d8aa8 !important;
+}

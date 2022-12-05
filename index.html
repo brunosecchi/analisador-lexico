@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- Processo de elaboração do analisador:
+
+- Foi criado um front utilizando um JQuery e bootstrap; 
+- Foi criado um botão input que chama uma função e adiciona as palavras;
+- No momento que analisar a palavra ela é adicionada a uma matriz de estados, sendo que pra cada letra irá verificar na matriz se está conforme adicionado anteriormente ;
+- Tem uma função limpar para apagar todas as palavras adicionadas, também sendo possível limpar uma a uma; 
+- E as palavras adicionadas ficam nesse dropdown do bootstrap "Palavras encontradas"
+
+
+Formas de testar:
+
+- Digitar apenas letras do alfabeto (A-Z);
+- Adicionar a palavra; 
+- Analisar a palavra digitando letra por letra, sendo que durante a digitação ele irá realizar as trocas de estado mostrando o acompanhamento visual;
+- Espaço irá mostrar as mensagens de Palavras Reconhecidas/Rejeitadas/Incompletas;
+- Backtraking irá funcionar no momento que pressionar o backspace apagando a palavra digitada e mostrando a troca de estado com o acompanhamento visual. -->
+
+
+<head>
+    <title>Analisador Léxico</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/2ad8f0bb00.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="init.js"></script>
+    <script src="scripts.js"></script>
+
+</head>
+
+<body>
+    <header class="navbar table-dark">
+        <span class="title">Analisador Léxico</span>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="form-inline my-2 my-lg-0 padding">
+                    <input id="input_word" class="form-control mr-sm-2 spacing" type="search" placeholder="Adicionar Palavra">
+                    <button id="insert_word" class="btn btn-dark table-dark my-2 my-sm-0">
+						ADICIONAR
+					</button>
+                </div>
+                <div class="navbar custom-nav padding">
+                    <div class="form-inline my-2 my-lg-0 custom-form">
+                        <input id="search_word" class="form-control mr-sm-2 spacing" type="search" placeholder="Analisar Palavra">
+                    </div>
+                </div>
+                <div class="dropdown padding">
+                    <button class="btn btn-secondary table-dark dropdown-toggle mr-sm-2 spacing" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Palavras Cadastradas
+					</button>
+                    <button id="clearAll" class="my-2 my-sm-0 btn btn-danger btn-custom-clean">
+						LIMPAR
+					</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div id="input-field">
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown padding">
+                    <button class="btn btn-secondary table-dark dropdown-toggle spacing" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Palavras Encontradas
+					</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div id="searched_words"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="validateWordsContainer">
+                    <div class="right">
+                        <div class="card text-center table-dark">
+                            <div class="card-body">
+                                <h5 class="card-title spacing">Tabela</h5>
+                                <div class="tableContainer">
+                                    <table class="table table-striped table-dark">
+                                        <thead>
+                                            <tr>
+                                                <th class="col">&delta;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabela_tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal" class="modal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							  </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Modal body text goes here.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary table-dark" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $("#clearAll").click(function() {
+                $('#tabela_tbody').html('');
+                $('#searched_words').html('');
+                $('#input-field').html('');
+                wordArray = [];
+                globalIteration = [0];
+                globalState = 0;
+                state = [
+                    []
+                ];
+                table = [];
+            });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+Processo de elaboração do analisador:
+
+- Foi criado um front utilizando um JQuery e bootstrap; 
+- Foi criado um botão input que chama uma função e adiciona as palavras;
+- No momento que analisar a palavra ela é adicionada a uma matriz de estados, sendo que pra cada letra irá verificar na matriz se está conforme adicionado anteriormente ;
+- Tem uma função limpar para apagar todas as palavras adicionadas, também sendo possível limpar uma a uma; 
+- E as palavras adicionadas ficam nesse dropdown do bootstrap "Palavras encontradas"
+
+
+Formas de testar:
+
+- Digitar apenas letras do alfabeto (A-Z);
+- Adicionar a palavra; 
+- Analisar a palavra digitando letra por letra, sendo que durante a digitação ele irá realizar as trocas de estado mostrando o acompanhamento visual;
+- Espaço irá mostrar as mensagens de Palavras Reconhecidas/Rejeitadas/Incompletas;
+- Backtraking irá funcionar no momento que pressionar o backspace apagando a palavra digitada e mostrando a troca de estado com o acompanhamento visual.
