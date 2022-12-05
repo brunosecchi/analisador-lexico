@@ -1,6 +1,6 @@
 Processo de elaboração do analisador:
 
-- Foi criado um front utilizando um JQuery e bootstrap; 
+- Foi criado um front utilizando um JQuery e bootstrap; (Bootstrap framework de estilização web / Jquery biblioteca de manipulação de componentes em JavaScript)
 - Foi criado um botão input que chama uma função e adiciona as palavras;
 - No momento que analisar a palavra ela é adicionada a uma matriz de estados, sendo que pra cada letra irá verificar na matriz se está conforme adicionado anteriormente ;
 - Tem uma função limpar para apagar todas as palavras adicionadas, também sendo possível limpar uma a uma; 
